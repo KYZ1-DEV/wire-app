@@ -10,9 +10,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN a2enmod rewrite
 
 # Salin konfigurasi Apache
-COPY docker/php/apache.conf /etc/apache2/sites-available/000-default.conf
+COPY docker/apache.conf /etc/apache2/sites-available/000-default.conf
 
 # salin entrypoint
-COPY docker/php/init.sh /usr/local/bin/init.sh
+COPY docker/init.sh /usr/local/bin/init.sh
 RUN chmod +x /usr/local/bin/init.sh
 ENTRYPOINT ["/usr/local/bin/init.sh"]
